@@ -1,8 +1,9 @@
-#Rx Clean Swift
+# Rx Clean Swift
 
 This repository provides XCode templates for Clean Archtiecture using RxSwift.
 
-##Classes
+## Classes
+
 Here is the global interaction schema:
 
 ![Interactions](https://mouce.fr/static/CleanSwift.001.jpeg)
@@ -42,7 +43,8 @@ Then (after restarting XCode) you can create a `New File / Viper / Scene`.
 ![NewFile](https://mouce.fr/static/Viper-new.png)
 
 
-##Dependency 
+## Dependency 
+
 Here is the global architecture schema:
 
 ![Architecture](https://mouce.fr/static/CleanSwift.002.jpeg)
