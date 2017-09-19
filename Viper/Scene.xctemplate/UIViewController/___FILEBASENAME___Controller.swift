@@ -13,16 +13,16 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-protocol ___FILEBASENAMEASIDENTIFIER___Intents : class {
+protocol ___VARIABLE_sceneName___Intents : class {
 
-    func display(viewModel : ___FILEBASENAMEASIDENTIFIER___Model)
+    func display(viewModel : ___VARIABLE_sceneName___Model)
 }
 
 
 
-class ___FILEBASENAMEASIDENTIFIER___Controller : UIViewController, ___FILEBASENAMEASIDENTIFIER___Intents {
+class ___VARIABLE_sceneName___Controller : UIViewController, ___VARIABLE_sceneName___Intents {
     
-    var presenter : ___FILEBASENAMEASIDENTIFIER___Presenter!
+    var presenter : ___VARIABLE_sceneName___Presenter!
     
     
     
@@ -32,7 +32,7 @@ class ___FILEBASENAMEASIDENTIFIER___Controller : UIViewController, ___FILEBASENA
         
     }
     
-    func display(viewModel:___FILEBASENAMEASIDENTIFIER___Model) {
+    func display(viewModel: ___VARIABLE_sceneName___Model) {
 
     }
     
