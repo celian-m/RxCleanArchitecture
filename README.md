@@ -34,6 +34,13 @@ The *Repository* is the object fetching the data ( WebService, DataBase, MemoryC
 
 ## Usage
 
+You need following pods :
+
+```ruby
+    pod 'RxSwift'
+    pod 'RxCocoa'
+```
+
 Using Xcode 8/9 you have to copy the `Viper` folder into :
 
 ` ~/Library/Developer/Xcode/Templates/File\ Templates/`
