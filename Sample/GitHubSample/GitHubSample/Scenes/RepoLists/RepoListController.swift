@@ -17,6 +17,7 @@ import RxDataSources
 protocol RepoListIntents : class {
     func intentLoad() -> Observable<String>
     func intentReload() -> Observable<Void>
+    func intentSelectRepository() -> Observable<E.Repository>
     func display(model : RepoListModel)
 }
 
@@ -70,6 +71,12 @@ class RepoListController : SuperViewController, RepoListIntents {
     func intentReload() -> Observable<Void> {
         return self.reloadButton.rx.tap.flatMap { _ in
             return Observable.just()
+        }
+    }
+    
+    func intentSelectRepository() -> Observable<E.Repository> {
+        return self.mTableView.rx.itemSelected.map { indexPath in
+            return self.dataSource.sectionModels[indexPath.section].items[indexPath.row]
         }
     }
 

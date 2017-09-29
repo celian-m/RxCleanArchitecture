@@ -15,7 +15,7 @@ struct RepoListInteractor {
     
     let repository = GitHubRepository()
     
-    func listRepositories(forUser user : String) -> Observable<[GitHubRepositoryEntitie]> {
+    func listRepositories(forUser user : String) -> Observable<[E.Repository]> {
         return repository.list(username: user)
     }
     

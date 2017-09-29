@@ -20,7 +20,7 @@ protocol ___VARIABLE_sceneName___Intents : class {
 
 
 
-class ___VARIABLE_sceneName___Controller : UIViewController, ___VARIABLE_sceneName___Intents {
+class ___VARIABLE_sceneName___Controller : ___VARIABLE_viewControllerSubclass___, ___VARIABLE_sceneName___Intents {
     
     var presenter : ___VARIABLE_sceneName___Presenter!
     

@@ -25,7 +25,7 @@ class  RepoListPresenter {
     
     let router : RepoListRouter
     let interactor : RepoListInteractor
-    weak var viewController : RepoListIntents?
+    weak var viewController : RepoListIntents!
     
     
     
@@ -42,12 +42,12 @@ class  RepoListPresenter {
     
     
     func sections() -> Observable<RepoListModel> {
-        let intentLoad = viewController!.intentLoad().flatMap({ (username)  in
+        let intentLoad = viewController.intentLoad().flatMap({ (username)  in
             return self.listRepositories(forUser: username)
         })
         
         
-        let reloadIntent = Observable.combineLatest(viewController!.intentLoad(), viewController!.intentReload()) { (username, _) -> String in
+        let reloadIntent = Observable.combineLatest(viewController.intentLoad(), viewController.intentReload()) { (username, _) -> String in
             return username
             }.flatMap { (username)  in
                 return self.listRepositories(forUser: username)
@@ -67,6 +67,11 @@ class  RepoListPresenter {
 
         Observable.merge(sections()).subscribe(onNext: { (model) in
             self.viewController?.display(model: model)
+        }).addDisposableTo(self.bag)
+        
+        
+        self.viewController.intentSelectRepository().subscribe(onNext: { repository in
+            self.router.go(to: .details(repository))
         }).addDisposableTo(self.bag)
     
     }

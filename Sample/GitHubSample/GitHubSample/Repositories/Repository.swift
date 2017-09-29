@@ -41,6 +41,9 @@ public class Repository  {
                 
                 return Observable.just(nil)
                 
+            }).catchError({ (error) -> Observable<(Any?)> in
+                print(error)
+                throw error
             })
         
         

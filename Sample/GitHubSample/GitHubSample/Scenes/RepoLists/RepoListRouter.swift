@@ -16,7 +16,7 @@ import UIKit
 struct RepoListRouter {
     
     enum Route {
-        
+        case details(Entities.Repository)
     }
     
     private weak var controller : RepoListController?
@@ -33,9 +33,12 @@ struct RepoListRouter {
     }
     
     func go(to route : Route) {
-//        switch route {
-//
-//        }
+        switch route {
+        case .details(let repository):
+            let detailsController = DetailsRouter.instantiateController(forRepository: repository)
+            self.controller?.navigationController?.pushViewController(detailsController, animated: true)
+            break
+        }
     }
     
     
