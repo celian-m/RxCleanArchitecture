@@ -39,6 +39,7 @@ You need following pods :
 ```ruby
     pod 'RxSwift'
     pod 'RxCocoa'
+    pod 'RxTest' #Add only to you test target
 ```
 
 Using Xcode 8/9 you have to copy the `Viper` folder into :
@@ -55,3 +56,15 @@ Then (after restarting XCode) you can create a `New File / Viper / Scene`.
 Here is the global architecture schema:
 
 ![Architecture](https://mouce.fr/static/CleanSwift.002.jpeg)
+
+
+## Unit Test
+
+The differents models/classes are designed to be testable ( Using RxTest ). You can sublass the *Controller/Repository* and mock the *Router* as they are structures.
+
+In order to well-test your code, you should probably focus on the *Presenter* class, trying to generate some odd scenarii ( sending *.onError()*, sending lot of UI interactions, etc. )
+
+You can find sample of Presenter Tests in [GitHubSampleTests/GitHubSampleTests.swift](https://github.com/celian-m/RxCleanArchitecture/blob/master/Sample/GitHubSample/GitHubSampleTests/GitHubSampleTests.swift)
+
+
+
