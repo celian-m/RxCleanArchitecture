@@ -6,9 +6,7 @@ target 'GitHubSample' do
     pod 'RxCocoa'
     pod 'RxAlamofire'
     pod 'RxDataSources', '~> 1.0'
-    pod 'KeychainSwift', '~> 7.0'
     pod 'RxGesture'
-    pod 'RxKeyboard'
 end
 
 
@@ -16,12 +14,9 @@ end
 target 'GitHubSampleTests' do
     pod 'RxSwift'
     pod 'RxTest'
-    pod 'RxBlocking'
     pod 'RxCocoa'
     pod 'RxAlamofire'
     pod 'RxDataSources', '~> 1.0'
-    pod 'KeychainSwift', '~> 7.0'
     pod 'RxGesture'
-    pod 'RxKeyboard'
 end
 

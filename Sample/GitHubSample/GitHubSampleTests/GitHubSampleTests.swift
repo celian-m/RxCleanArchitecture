@@ -8,7 +8,6 @@
 
 import XCTest
 import RxSwift
-import RxBlocking
 import RxTest
 @testable import GitHubSample
 

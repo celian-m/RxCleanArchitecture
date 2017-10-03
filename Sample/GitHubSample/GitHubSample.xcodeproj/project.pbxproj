@@ -11,6 +11,7 @@
 		83301CFA4D4671B4742A5D31 /* Pods_GitHubSampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B28C9D59D6E85BBF15327862 /* Pods_GitHubSampleTests.framework */; };
 		B02D2FBF1F83C13600702502 /* GitHubSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02D2FBE1F83C13500702502 /* GitHubSampleUITests.swift */; };
 		B02D2FC71F83C20300702502 /* UITestsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02D2FC61F83C20300702502 /* UITestsExtensions.swift */; };
+		B02D2FC91F83CA9700702502 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B02D2FC81F83CA9700702502 /* README.md */; };
 		B0982C261F7E745500A0366F /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0982C211F7E745500A0366F /* DetailsPresenter.swift */; };
 		B0982C271F7E745500A0366F /* DetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0982C221F7E745500A0366F /* DetailsRouter.swift */; };
 		B0982C281F7E745500A0366F /* DetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0982C231F7E745500A0366F /* DetailsController.swift */; };
@@ -62,6 +63,7 @@
 		B02D2FBE1F83C13500702502 /* GitHubSampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSampleUITests.swift; sourceTree = "<group>"; };
 		B02D2FC01F83C13600702502 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B02D2FC61F83C20300702502 /* UITestsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestsExtensions.swift; sourceTree = "<group>"; };
+		B02D2FC81F83CA9700702502 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 		B0982C211F7E745500A0366F /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
 		B0982C221F7E745500A0366F /* DetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsRouter.swift; sourceTree = "<group>"; };
 		B0982C231F7E745500A0366F /* DetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsController.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 		B0D5F5761F7B9A89002E6521 = {
 			isa = PBXGroup;
 			children = (
+				B02D2FC81F83CA9700702502 /* README.md */,
 				B0D5F5A21F7B9AB6002E6521 /* PODFILE */,
 				B0D5F5811F7B9A89002E6521 /* GitHubSample */,
 				B0D5F5961F7B9A89002E6521 /* GitHubSampleTests */,
@@ -399,6 +402,7 @@
 				B0D5F5AD1F7B9E1D002E6521 /* RepoListController.xib in Resources */,
 				B0D5F58A1F7B9A89002E6521 /* Assets.xcassets in Resources */,
 				B0982C2A1F7E745500A0366F /* DetailsController.xib in Resources */,
+				B02D2FC91F83CA9700702502 /* README.md in Resources */,
 				B0D5F5A31F7B9AB6002E6521 /* PODFILE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -487,27 +491,21 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GitHubSampleTests/Pods-GitHubSampleTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
-				"${BUILT_PRODUCTS_DIR}/RxKeyboard/RxKeyboard.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
 				"${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxKeyboard.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxTest.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -523,23 +521,19 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GitHubSample/Pods-GitHubSample-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
-				"${BUILT_PRODUCTS_DIR}/RxKeyboard/RxKeyboard.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxKeyboard.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
