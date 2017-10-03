@@ -31,13 +31,13 @@ class  RepoListPresenter {
     let bag = DisposeBag()
     let scheduler : SchedulerType
     let router : RepoListRouterInput
-    let interactor : RepoListInteractor
+    let interactor : RepoListInteractorInput
     weak var viewController : RepoListIntents!
     
     
     
     init(router : RepoListRouterInput,
-         interactor : RepoListInteractor,
+         interactor : RepoListInteractorInput,
          viewController : RepoListIntents,
          scheduler : SchedulerType = MainScheduler.instance) {
         self.router = router

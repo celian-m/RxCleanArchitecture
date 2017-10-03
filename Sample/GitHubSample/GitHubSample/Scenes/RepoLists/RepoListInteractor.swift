@@ -11,7 +11,11 @@
 import Foundation
 import RxSwift
 
-struct RepoListInteractor {
+protocol RepoListInteractorInput {
+    func listRepositories(forUser user : String) -> Observable<[E.Repository]>
+}
+
+struct RepoListInteractor : RepoListInteractorInput {
     
     let repository : GitHubRepository
     init(repository : GitHubRepository = GitHubRepository()){

@@ -24,12 +24,12 @@ class  ___VARIABLE_sceneName___Presenter {
     private let scheduler : SchedulerType
     
     private let router : ___VARIABLE_sceneName___RouterInput
-    private let interactor : ___VARIABLE_sceneName___Interactor
+    private let interactor : ___VARIABLE_sceneName___InteractorInput
     private weak var viewController : ___VARIABLE_sceneName___Intents!
     
     
     init(router : ___VARIABLE_sceneName___RouterInput,
-         interactor : ___VARIABLE_sceneName___Interactor,
+         interactor : ___VARIABLE_sceneName___InteractorInput,
          viewController : ___VARIABLE_sceneName___Intents,
          scheduler : SchedulerType = MainScheduler.instance ) {
         self.router = router

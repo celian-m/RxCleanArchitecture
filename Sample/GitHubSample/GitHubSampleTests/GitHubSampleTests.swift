@@ -11,7 +11,7 @@ import RxSwift
 import RxTest
 @testable import GitHubSample
 
-class MockRepository: GitHubRepository {
+private class MockRepository: GitHubRepository {
   
     var scheduler : TestScheduler!
     
@@ -29,7 +29,7 @@ class MockRepository: GitHubRepository {
 }
 
 
-class MockListIntents : RepoListIntents {
+private class MockListIntents : RepoListIntents {
 
     
     
@@ -58,7 +58,7 @@ class MockListIntents : RepoListIntents {
     
 }
 
-struct MockRouter : RepoListRouterInput {
+private struct MockRouter : RepoListRouterInput {
     static func instantiateController() -> RepoListController {
         return RepoListController()
     }
@@ -76,11 +76,12 @@ struct MockRouter : RepoListRouterInput {
 
 class ListRepositoriesTests: XCTestCase {
     
-    var presenter : RepoListPresenter!
-    var listUsesCases : RepoListInteractor!
-    var router : MockRouter!
-    var intents : MockListIntents!
-    var scheduler : TestScheduler!
+    private var presenter : RepoListPresenter!
+    private var listUsesCases : RepoListInteractor!
+    private var router : MockRouter!
+    private var intents : MockListIntents!
+    private var scheduler : TestScheduler!
+    
     override func setUp() {
         super.setUp()
         

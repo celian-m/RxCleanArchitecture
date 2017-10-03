@@ -11,6 +11,10 @@
 import Foundation
 import RxSwift
 
+protocol  ___VARIABLE_sceneName___InteractorInput  {
+    
+}
+
 struct ___VARIABLE_sceneName___Interactor {
     
 //    var repository : Repository

@@ -26,8 +26,6 @@ func ==(lhs: RepoListRoute, rhs: RepoListRoute) -> Bool {
 }
 
 protocol RepoListRouterInput {
-
-    static func instantiateController() -> RepoListController
     func go(to route : RepoListRoute)
 }
 
