@@ -11,13 +11,22 @@
 import Foundation
 import UIKit
 
+enum ___VARIABLE_sceneName___Route {
+    
+}
+
+
+/**
+ * The ___VARIABLE_sceneName___RouterInput protocol declares an interface for ___VARIABLE_sceneName___Router
+ * Using an interface let you stub the component for Unit Testing
+ */
+protocol ___VARIABLE_sceneName___RouterInput {
+    static func instantiateController() -> ___VARIABLE_sceneName___Controller
+    func go(to route : ___VARIABLE_sceneName___Route)
+}
 
 
 struct ___VARIABLE_sceneName___Router {
-    
-    enum Route {
-        
-    }
     
     private weak var controller : ___VARIABLE_sceneName___Controller?
     
@@ -32,7 +41,7 @@ struct ___VARIABLE_sceneName___Router {
         return controller
     }
     
-    func go(to route : Route) {
+    func go(to route : ___VARIABLE_sceneName___Route) {
 //        switch route {
 //
 //        }

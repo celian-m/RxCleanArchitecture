@@ -13,7 +13,10 @@ import RxSwift
 
 struct RepoListInteractor {
     
-    let repository = GitHubRepository()
+    let repository : GitHubRepository
+    init(repository : GitHubRepository = GitHubRepository()){
+        self.repository = repository
+    }
     
     func listRepositories(forUser user : String) -> Observable<[E.Repository]> {
         return repository.list(username: user)

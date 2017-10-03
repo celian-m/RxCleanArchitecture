@@ -13,5 +13,10 @@ import RxSwift
 
 struct ___VARIABLE_sceneName___Interactor {
     
+//    var repository : Repository
+//
+//    init(repository : Repository) {
+//            self.repository = repository
+//    }
 
 }

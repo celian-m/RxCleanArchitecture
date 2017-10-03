@@ -12,65 +12,73 @@ import RxSwift
 import RxDataSources
 
 
-struct RepoListModel {
+struct RepoListModel : Equatable {
+    static func ==(lhs: RepoListModel, rhs: RepoListModel) -> Bool {
+        return lhs.title == rhs.title && lhs.sections.count == rhs.sections.count && lhs.isLoading == rhs.isLoading && lhs.error == rhs.error
+    }
+    
     var title : String
     var sections : [GitHubRepositorySection]
     var isLoading : Bool
+    var error : String?
+    
+    
 
 }
 
 
 class  RepoListPresenter {
     let bag = DisposeBag()
-    
-    let router : RepoListRouter
+    let scheduler : SchedulerType
+    let router : RepoListRouterInput
     let interactor : RepoListInteractor
     weak var viewController : RepoListIntents!
     
     
     
-    init(router : RepoListRouter,
+    init(router : RepoListRouterInput,
          interactor : RepoListInteractor,
-         viewController : RepoListIntents) {
+         viewController : RepoListIntents,
+         scheduler : SchedulerType = MainScheduler.instance) {
         self.router = router
-        
-        
         self.interactor = interactor
         self.viewController = viewController
-        
+        self.scheduler = scheduler
     }
     
     
     func sections() -> Observable<RepoListModel> {
-        let intentLoad = viewController.intentLoad().flatMap({ (username)  in
+        let intentLoad = viewController.intentLoad().flatMapLatest({ (username)  in
             return self.listRepositories(forUser: username)
         })
         
         
         let reloadIntent = Observable.combineLatest(viewController.intentLoad(), viewController.intentReload()) { (username, _) -> String in
             return username
-            }.flatMap { (username)  in
+            }.flatMapLatest { (username)  in
                 return self.listRepositories(forUser: username)
         }
         
-        
-
-        
-        
         return Observable.merge([intentLoad, reloadIntent]).map { (user, sections)  in
-            return RepoListModel(title: user, sections: sections, isLoading: false)
+            return RepoListModel(title: user, sections: sections, isLoading: false, error : nil)
         }
     }
     
     func attach() {
+        Observable.merge(sections())
+            .catchError({ (error) -> Observable<RepoListModel> in
+                return Observable.just(RepoListModel(title: "", sections: [], isLoading: false, error: error.localizedDescription))
+            }).scan(RepoListModel.init(title: "", sections: [], isLoading: false, error: nil), accumulator: { (seed, next) -> RepoListModel in
+                if let error = next.error {
+                    return RepoListModel(title: seed.title, sections: seed.sections, isLoading: false, error: error)
+                }else{
+                    return next
+                }
+            }).subscribe(onNext: { (model) in
+                self.viewController.display(model: model)
+            }).addDisposableTo(self.bag)
         
-
-        Observable.merge(sections()).subscribe(onNext: { (model) in
-            self.viewController?.display(model: model)
-        }).addDisposableTo(self.bag)
-        
-        
-        self.viewController.intentSelectRepository().subscribe(onNext: { repository in
+        self.viewController.intentSelectRepository().throttle(2, latest: false, scheduler: scheduler).subscribe(onNext: { repository in
             self.router.go(to: .details(repository))
         }).addDisposableTo(self.bag)
     
@@ -80,11 +88,14 @@ class  RepoListPresenter {
     
     func listRepositories(forUser user : String) -> Observable<(String, [GitHubRepositorySection])> {
         return self.interactor.listRepositories(forUser: user)
-            .map({ (repositories) -> (String, [GitHubRepositorySection]) in
-                return (user, [GitHubRepositorySection(items: repositories)])
-        })
-            /*return RepoListModel(title: Observable.just(user), sections : Observable.just(sections), isLoading : Observable.just(false))
-        })//.startWith(RepoListModel(title: Observable.just(user), sections: Observable.just([]), isLoading: Observable.just(true)))*/
+            .map { (repositories) -> (String, [GitHubRepositorySection]) in
+                if repositories.count > 0 {
+                    return (user, [GitHubRepositorySection(items: repositories)])
+                }
+                else{
+                    return (user, [])
+                }
+            }
     }
     
 

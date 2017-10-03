@@ -15,6 +15,7 @@ end
 
 target 'GitHubSampleTests' do
     pod 'RxSwift'
+    pod 'RxTest'
     pod 'RxBlocking'
     pod 'RxCocoa'
     pod 'RxAlamofire'

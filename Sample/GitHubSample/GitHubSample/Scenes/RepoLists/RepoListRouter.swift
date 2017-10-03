@@ -11,13 +11,27 @@
 import Foundation
 import UIKit
 
+enum RepoListRoute {
+    case details(Entities.Repository)
+}
 
+extension RepoListRoute : Equatable {}
 
-struct RepoListRouter {
-    
-    enum Route {
-        case details(Entities.Repository)
+func ==(lhs: RepoListRoute, rhs: RepoListRoute) -> Bool {
+    switch (lhs, rhs) {
+        case ( let .details(a), let .details(b)):
+            return a == b
     }
+        
+}
+
+protocol RepoListRouterInput {
+
+    static func instantiateController() -> RepoListController
+    func go(to route : RepoListRoute)
+}
+
+struct RepoListRouter : RepoListRouterInput {
     
     private weak var controller : RepoListController?
     
@@ -32,7 +46,7 @@ struct RepoListRouter {
         return controller
     }
     
-    func go(to route : Route) {
+    func go(to route : RepoListRoute) {
         switch route {
         case .details(let repository):
             let detailsController = DetailsRouter.instantiateController(forRepository: repository)

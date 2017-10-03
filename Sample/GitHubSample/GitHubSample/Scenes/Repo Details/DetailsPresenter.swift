@@ -43,7 +43,7 @@ class  DetailsPresenter {
         let loadIntent = self.viewController
             .intentLoad()
             .debug("Details Load", trimOutput: false)
-            .flatMap { self.listCommits(self.repository) }
+            .flatMapLatest { self.listCommits(self.repository) }
             .map { commits in
                 return DetailsModel(title: self.repository.name, commits: [CommitSection(items : commits)])
         }

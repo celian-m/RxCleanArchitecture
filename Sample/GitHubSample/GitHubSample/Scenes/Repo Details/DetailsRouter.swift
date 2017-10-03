@@ -32,11 +32,11 @@ struct DetailsRouter {
         return controller
     }
     
-    func go(to route : Route) {
+//    func go(to route : Route) {
 //        switch route {
 //
 //        }
-    }
+//    }
     
     
 }
