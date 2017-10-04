@@ -16,12 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let controller = RepoListRouter.instantiateController()
+        let controller : UIViewController
+        if ProcessInfo.processInfo.arguments.contains("TEST") {
+            controller = UIViewController()
+        }else{
+            controller = RepoListRouter.instantiateController()}
         let navigationController = UINavigationController(rootViewController: controller)
         //navigationController.isNavigationBarHidden = true
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
         return true
+        //return true
     }
 }
 

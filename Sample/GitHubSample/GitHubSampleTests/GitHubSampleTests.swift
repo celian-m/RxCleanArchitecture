@@ -129,38 +129,7 @@ class ListRepositoriesTests: XCTestCase {
         
     }
     
-    func testReload() {
-        
-        //Simulate user actions
-        _ = scheduler.createHotObservable([next(10, "celian-m")]).bind(to: intents.publishLoad)
-        _ = scheduler.createColdObservable([next(15, ())]).bind(to: intents.publishReload)
-        
-        let observer = scheduler.createObserver(RepoListModel.self)
-        
-        _ = intents.publishModel.bind(to: observer)
-        scheduler.start()
-        scheduler.advanceTo(50)
-        
-        //Describe the exepected results
-        let resuls = [ next(10,  RepoListModel(title: "celian-m",
-                                               sections: [GitHubRepositorySection.init(items: [E.Repository.init(name: "FakeRepository",
-                                                                                                                 description: "Fake description",
-                                                                                                                 login: "celian-m")])],
-                                               isLoading: false,
-                                               error: nil)),
-                       next(15,    RepoListModel(title: "celian-m",
-                                                 sections: [GitHubRepositorySection.init(items: [E.Repository.init(name: "FakeRepository",
-                                                                                                                   description: "Fake description",
-                                                                                                                   login: "celian-m")])],
-                                                 isLoading: false,
-                                                 error: nil))
-        ]
-        
-        
-        //Check if expected matches actual
-        XCTAssertEqual(resuls, observer.events)
-        
-    }
+    
 
     func testSuccessThenError() {
         
