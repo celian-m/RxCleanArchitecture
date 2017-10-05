@@ -26,7 +26,7 @@ protocol ___VARIABLE_sceneName___RouterInput {
 }
 
 
-struct ___VARIABLE_sceneName___Router {
+struct ___VARIABLE_sceneName___Router :  ___VARIABLE_sceneName___RouterInput {
     
     private weak var controller : ___VARIABLE_sceneName___Controller?
     

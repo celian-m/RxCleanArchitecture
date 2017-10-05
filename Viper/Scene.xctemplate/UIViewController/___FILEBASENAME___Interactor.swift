@@ -15,7 +15,7 @@ protocol  ___VARIABLE_sceneName___InteractorInput  {
     
 }
 
-struct ___VARIABLE_sceneName___Interactor {
+struct ___VARIABLE_sceneName___Interactor : ___VARIABLE_sceneName___InteractorInput {
     
 //    var repository : Repository
 //
