@@ -40,12 +40,12 @@ private class MockController : ___VARIABLE_sceneName___Intents {
      */
     
     let modelPublisher = PublishSubject<___VARIABLE_sceneName___Model>()
-    func display(model: ___VARIABLE_sceneName___Model) {
-        modelPublisher.onNext(model)
+    func display(viewModel: ___VARIABLE_sceneName___Model) {
+        modelPublisher.onNext(viewModel)
     }
 }
 
-class RepoListPresenterTests: XCTestCase {
+class ___VARIABLE_sceneName___PresenterTests: XCTestCase {
     
     private var bag : DisposeBag!
     private var scheduler : TestScheduler!
@@ -56,7 +56,7 @@ class RepoListPresenterTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        
+        bag = DisposeBag()
         scheduler = TestScheduler.init(initialClock: 0)
         router = MockRouter()
         controller = MockController()
@@ -87,7 +87,7 @@ class RepoListPresenterTests: XCTestCase {
      intents.bind(to: controller.loadPublisher).addDisposableTo(bag)
      
      //Redirect the output stream into a Scheduler Observer
-     let observer = scheduler.createObserver(RepoListModel.self)
+     let observer = scheduler.createObserver(___VARIABLE_sceneName___Model.self)
      controller.modelPublisher.bind(to: observer).addDisposableTo(bag)
      
      //Start the Timer
@@ -96,7 +96,7 @@ class RepoListPresenterTests: XCTestCase {
      scheduler.advanceTo(50)
      
      //Describe the exepected results
-     let results = [next(10, RepoListModel.init(title: "celian-m", sections: [], isLoading: false, error: nil))]
+     let results = [next(10, ___VARIABLE_sceneName___Model.init(title: "celian-m", sections: [], isLoading: false, error: nil))]
      
      //Check if expected matches actual
      XCTAssertEqual(results, observer.events)
@@ -104,7 +104,11 @@ class RepoListPresenterTests: XCTestCase {
      }*/
     
 
-    
+        
+    func testMemoryCycle() {
+        controller = nil
+        XCTAssertNil(presenter)
+    }
 
     
 }

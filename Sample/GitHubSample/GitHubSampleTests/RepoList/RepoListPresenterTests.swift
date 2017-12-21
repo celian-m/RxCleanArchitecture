@@ -72,7 +72,7 @@ class RepoListPresenterTests: XCTestCase {
         scheduler = TestScheduler.init(initialClock: 0)
         router = MockRouter()
         controller = MockController()
-        interactor  = MockInteractor()     
+        interactor  = MockInteractor()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     

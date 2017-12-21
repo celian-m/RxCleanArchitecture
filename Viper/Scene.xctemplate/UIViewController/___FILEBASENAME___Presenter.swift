@@ -25,7 +25,7 @@ class  ___VARIABLE_sceneName___Presenter {
     
     private let router : ___VARIABLE_sceneName___RouterInput
     private let interactor : ___VARIABLE_sceneName___InteractorInput
-    private weak var viewController : ___VARIABLE_sceneName___Intents!
+    private weak var viewController : ___VARIABLE_sceneName___Intents?
     
     
     init(router : ___VARIABLE_sceneName___RouterInput,
@@ -38,11 +38,17 @@ class  ___VARIABLE_sceneName___Presenter {
         self.scheduler = scheduler
     }
     
+    deinit {
+        print("Deinit \(self)")
+    }
+
     
     func attach() {
+
+        guard let viewController = viewController else { return }
         _ = Observable.merge([]).subscribe(onNext: { [weak self] (model) in
             self?.viewController.display(viewModel: model)
-        }).addDisposableTo(bag)
+        }).disposed(by: bag)
         
     }
     
