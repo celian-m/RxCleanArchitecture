@@ -13,38 +13,36 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-protocol ___VARIABLE_sceneName___Intents : class {
-	func loadIntent() -> Observable<Void> 
-    func display(viewModel : ___VARIABLE_sceneName___Model)
+protocol ___VARIABLE_sceneName___Intents: class {
+	func loadIntent() -> Observable<Void>
+    func display(viewModel: ___VARIABLE_sceneName___Model)
 }
 
+class ___VARIABLE_sceneName___Controller: ___VARIABLE_viewControllerSubclass___ {
 
+    var presenter: ___VARIABLE_sceneName___Presenter!
 
-class ___VARIABLE_sceneName___Controller : ___VARIABLE_viewControllerSubclass___, ___VARIABLE_sceneName___Intents {
-    
-    var presenter : ___VARIABLE_sceneName___Presenter!
-    
-    
-    //MARK:-  View LifeCycle
-        deinit {
+    // MARK: - View LifeCycle
+    deinit {
         print("Deinit \(self)")
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.attach()
-        
+
     }
+}
+
+extension ___VARIABLE_sceneName___Controller: ___VARIABLE_sceneName___Intents {
     
-
-    //MARK:- RxIntents
+    // MARK: - RxIntents
     func loadIntent() -> Observable<Void> {
-    	return Observable.just()
+        return Observable.just(())
     }
 
-    //MARK:- Display
+    // MARK: - Display
     func display(viewModel: ___VARIABLE_sceneName___Model) {
 
     }
-    
 }

@@ -7,7 +7,6 @@
 //
 //
 
-
 import Foundation
 import RxSwift
 
@@ -15,11 +14,11 @@ protocol  ___VARIABLE_sceneName___InteractorInput  {
     
 }
 
-struct ___VARIABLE_sceneName___Interactor : ___VARIABLE_sceneName___InteractorInput {
+struct ___VARIABLE_sceneName___Interactor: ___VARIABLE_sceneName___InteractorInput {
     
-//    var repository : Repository
+//    var repository: Repository
 //
-//    init(repository : Repository) {
+//    init(repository: Repository) {
 //            self.repository = repository
 //    }
 
