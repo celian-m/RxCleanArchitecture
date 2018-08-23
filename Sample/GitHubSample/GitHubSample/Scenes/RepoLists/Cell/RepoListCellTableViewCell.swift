@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+@IBDesignable 
 class RepoListCellTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
@@ -23,4 +23,8 @@ class RepoListCellTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        self.textLabel?.text = "test"
+    }
 }
