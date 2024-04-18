@@ -15,25 +15,26 @@ enum ___VARIABLE_sceneName___Route {
 }
 
 /**
- * The ___VARIABLE_sceneName___RouterInput protocol declares an interface for ___VARIABLE_sceneName___Router
+ * The ___VARIABLE_sceneName___RouterInterface protocol declares an interface for ___VARIABLE_sceneName___Router
  * Using an interface let you stub the component for Unit Testing
  */
-protocol ___VARIABLE_sceneName___RouterInput {
+protocol ___VARIABLE_sceneName___RouterInterface {
     static func instantiateController() -> ___VARIABLE_sceneName___Controller
     func go(to route: ___VARIABLE_sceneName___Route)
 }
 
-struct ___VARIABLE_sceneName___Router:  ___VARIABLE_sceneName___RouterInput {
+class ___VARIABLE_sceneName___Router:  ___VARIABLE_sceneName___RouterInterface {
     
+    private init() {}
     private weak var controller: ___VARIABLE_sceneName___Controller?
     
     static func instantiateController() -> ___VARIABLE_sceneName___Controller {
+        let router = ___VARIABLE_sceneName___Router()
+        let interactor = ___VARIABLE_sceneName___Interactor()
         let controller = ___VARIABLE_sceneName___Controller(nibName: "___VARIABLE_sceneName___Controller", bundle: nil)
-        
-        let router = ___VARIABLE_sceneName___Router(controller: controller)
-        let presenter = ___VARIABLE_sceneName___Presenter(router: router, viewController: controller)
+        let presenter = ___VARIABLE_sceneName___Presenter(interactor: interactor, router: router, controller: controller)
+        router.controller = controller
         controller.presenter = presenter
-        
         return controller
     }
     

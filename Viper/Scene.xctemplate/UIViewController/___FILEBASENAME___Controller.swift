@@ -13,7 +13,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-protocol ___VARIABLE_sceneName___Intents: RxIntents {
+protocol ___VARIABLE_sceneName___Intents: class, RxIntents {
 	func loadIntent() -> Observable<Void>
     func display(viewModel: ___VARIABLE_sceneName___Model)
 }
@@ -21,6 +21,14 @@ protocol ___VARIABLE_sceneName___Intents: RxIntents {
 class ___VARIABLE_sceneName___Controller: ___VARIABLE_viewControllerSubclass___ {
 
     var presenter: ___VARIABLE_sceneName___Presenter!
+
+     override init(nibName nibNameOrNil: String? = "___VARIABLE_sceneName___Controller", bundle nibBundleOrNil: Bundle? = nil) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - View LifeCycle
     deinit {
